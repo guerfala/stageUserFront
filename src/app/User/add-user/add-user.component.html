@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <h2>Add New User</h2>
+
+  <form (ngSubmit)="onSubmit()" #addUserForm="ngForm">
+    
+    <!-- Nom Field -->
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input
+        type="text"
+        id="nom"
+        class="form-control"
+        name="nom"
+        [(ngModel)]="user.Nom"
+        required
+        #nom="ngModel"
+      />
+      <div *ngIf="nom.invalid && nom.touched" class="text-danger">
+        Nom is required
+      </div>
+    </div>
+
+    <!-- Prenom Field -->
+    <div class="form-group">
+      <label for="prenom">Prenom</label>
+      <input
+        type="text"
+        id="prenom"
+        class="form-control"
+        name="prenom"
+        [(ngModel)]="user.Prenom"
+        required
+        #prenom="ngModel"
+      />
+      <div *ngIf="prenom.invalid && prenom.touched" class="text-danger">
+        Prenom is required
+      </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="user.Email"
+        required
+        email
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        A valid Email is required
+      </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        name="password"
+        [(ngModel)]="user.Password"
+        required
+        minlength="6"
+        #password="ngModel"
+      />
+      <div *ngIf="password.invalid && password.touched" class="text-danger">
+        Password must be at least 6 characters long
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-primary mt-3"
+      [disabled]="addUserForm.invalid"
+    >
+      Add User
+    </button>
+  </form>
+</div>

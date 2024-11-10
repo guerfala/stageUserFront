@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+    margin-left: 0.5%;
+  }
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  /* Base Button Style */
+  .button {
+    padding: 5px 10px; /* Padding for buttons */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    margin-right: 5px;
+  }
+  
+  /* Edit Button Style */
+  .edit-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+  }
+  
+  .edit-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+  }
+  
+  /* Delete Button Style */
+  .delete-button {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+  }
+  
+  .delete-button:hover {
+    background-color: #e53935; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+  }
+  
