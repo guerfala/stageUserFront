@@ -1,0 +1,18 @@
+<div class="stats-widget">
+    <h3>Statistiques des Compétences</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Compétence</th>
+          <th>Note Moyenne</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stat of stats">
+          <td>{{ stat.competence }}</td>
+          <td>{{ stat.averageNote | number:'1.1-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

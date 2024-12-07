@@ -1,0 +1,24 @@
+.stats-widget {
+    margin: 20px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .stats-widget table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .stats-widget th, .stats-widget td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .stats-widget th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  

@@ -15,7 +15,15 @@ import { HeaderComponent } from './header/header.component';
 import { MatTableModule } from '@angular/material/table'; // Import MatTableModule
 import { MatPaginatorModule } from '@angular/material/paginator'; // Optional: for pagination
 import { MatSortModule } from '@angular/material/sort';
-import { SingupComponent } from './singup/singup.component'; 
+import { SingupComponent } from './singup/singup.component';
+import { AddEmployeeComponent } from './Employee/add-employee/add-employee.component';
+import { ShowAllEmployeeComponent } from './Employee/show-all-employee/show-all-employee.component';
+import { ShowAllCompetenceComponent } from './Competence/show-all-competence/show-all-competence.component';
+import { AddCompetenceComponent } from './Competence/add-competence/add-competence.component';
+import { AssignNoteComponent } from './Employee/assign-note/assign-note.component';
+import { StatsWidgetComponent } from './stats-widget/stats-widget.component';
+import { StatsGraphComponent } from './stats-graph/stats-graph.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -25,7 +33,14 @@ import { SingupComponent } from './singup/singup.component';
     ShowAllUsersComponent,
     UpdateUserComponent,
     HeaderComponent,
-    SingupComponent
+    SingupComponent,
+    AddEmployeeComponent,
+    ShowAllEmployeeComponent,
+    ShowAllCompetenceComponent,
+    AddCompetenceComponent,
+    AssignNoteComponent,
+    StatsWidgetComponent,
+    StatsGraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +50,8 @@ import { SingupComponent } from './singup/singup.component';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

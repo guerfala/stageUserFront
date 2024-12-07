@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="assign-note-container">
+  <h1>Assign Note to {{ employee.Nom }} {{ employee.Prenom }}</h1>
+
+  <form class="assign-note-form" (ngSubmit)="assign()">
+    <div class="form-group">
+      <label for="competence">Select Competence:</label>
+      <select id="competence" [(ngModel)]="selectedCompetence" name="competence" class="form-select">
+        <option *ngFor="let competence of competences" [ngValue]="competence">
+          {{ competence.Libelle }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="note">Enter Note:</label>
+      <input 
+        type="number" 
+        id="note" 
+        [(ngModel)]="note" 
+        name="note" 
+        class="form-input" 
+        required 
+        min="0" 
+        max="5"
+        step="1" 
+        placeholder="Enter a note between 0 and 5"
+      >
+    </div>
+
+    <div class="button-container">
+      <button type="submit" class="button submit-button">Assign Note</button>
+    </div>
+  </form>
+</div>

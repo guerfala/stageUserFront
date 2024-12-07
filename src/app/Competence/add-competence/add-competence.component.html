@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <h2>Add New Competence</h2>
+
+  <form (ngSubmit)="onSubmit()" #addCompetenceForm="ngForm">
+    
+    <!-- Nom Field -->
+    <div class="form-group">
+      <label for="nom">Libelle</label>
+      <input
+        type="text"
+        id="libelle"
+        class="form-control"
+        name="libelle"
+        [(ngModel)]="competence.Libelle"
+        required
+        #libelle="ngModel"
+      />
+      <div *ngIf="libelle.invalid && libelle.touched" class="text-danger">
+        Libelle is required
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-primary mt-3"
+      [disabled]="addCompetenceForm.invalid"
+    >
+      Add Competence
+    </button>
+  </form>
+</div>
