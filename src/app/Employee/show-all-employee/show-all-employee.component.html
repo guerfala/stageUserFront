@@ -1,5 +1,4 @@
 <app-header></app-header>
-<app-stats-widget></app-stats-widget>
 
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -32,5 +31,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  
+<app-stats-widget></app-stats-widget>
+<app-stats-graph></app-stats-graph>
   
   

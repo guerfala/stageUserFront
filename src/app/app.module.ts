@@ -23,7 +23,6 @@ import { AddCompetenceComponent } from './Competence/add-competence/add-competen
 import { AssignNoteComponent } from './Employee/assign-note/assign-note.component';
 import { StatsWidgetComponent } from './stats-widget/stats-widget.component';
 import { StatsGraphComponent } from './stats-graph/stats-graph.component';
-import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -51,7 +50,6 @@ import { ChartsModule } from 'ng2-charts';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

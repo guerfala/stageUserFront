@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartOptions } from 'chart.js';
+import Chart from 'chart.js/auto';
 import { NoteService } from '../Services/note.service';
 
 @Component({
@@ -8,39 +8,40 @@ import { NoteService } from '../Services/note.service';
   styleUrls: ['./stats-graph.component.css']
 })
 export class StatsGraphComponent implements OnInit {
-  public barChartData!: ChartConfiguration<'bar'>['data'];
-  public barChartOptions: ChartOptions<'bar'> = {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-    },
-    scales: {
-      x: {},
-      y: { beginAtZero: true },
-    },
-  };
-
-  public barChartLegend = true;
-
   constructor(private noteService: NoteService) {}
 
   ngOnInit(): void {
-    this.noteService.getAverageByCompetence().subscribe((data: any[]) => {
-      const labels = data.map((stat) => stat.competence); // Libellé des compétences
-      const values = data.map((stat) => stat.averageNote); // Moyennes des notes
+    this.loadChartData();
+  }
 
-      this.barChartData = {
-        labels: labels,
-        datasets: [
-          {
-            data: values,
-            label: 'Moyenne des Notes',
+  loadChartData(): void {
+    // Call the service to fetch average data by competence
+    this.noteService.getAverageByCompetence().subscribe((data: any[]) => {
+      // Extract labels and data values from the API response
+      const labels = data.map(stat => stat.competence); // Assumes response has a 'competence' field
+      const values = data.map(stat => stat.averageNote); // Assumes response has an 'averageNote' field
+
+      // Create the chart with fetched data
+      const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels, // Use dynamic labels from the API
+          datasets: [{
+            label: 'Average Notes',
+            data: values, // Use dynamic data from the API
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-          },
-        ],
-      };
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
     });
   }
 }
